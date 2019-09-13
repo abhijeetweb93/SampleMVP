@@ -10,7 +10,7 @@ class MainPresenter(val view: IMainContractor.View) : IMainContractor.Presenter 
         view.showProgessbar()
 
 
-        model.getData().subscribe(object : Observer<List<Hero>> {
+        val subscription = model.getData().subscribe(object : Observer<List<Hero>> {
             override fun onComplete() {
                 view.hideProgressbar()
             }
@@ -26,24 +26,6 @@ class MainPresenter(val view: IMainContractor.View) : IMainContractor.Presenter 
                 view.showError(e.message + "")
             }
         })
-
-
-//        val subscription = model.getData().subscribe(object : Subscriber<List<Hero>>() {
-//            override fun onCompleted() {
-//                view.hideProgressbar()
-//            }
-//
-//            override fun onError(e: Throwable) {
-//                //Log.e("121",param_value+" "+param_name+" "+parent_id);
-//                view.showError(e.message + "")
-//            }
-//
-//            override fun onNext(csfChecklist1: List<Hero>) {
-//                //Logger.log(TAG, csfChecklist1.getParam_name());
-//                view.showData(csfChecklist1)
-//            }
-//        })
-
 
     }
 }
