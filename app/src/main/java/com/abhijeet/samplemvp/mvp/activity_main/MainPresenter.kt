@@ -22,7 +22,7 @@ class MainPresenter (): IMainContractor.Presenter() {
             }
 
             override fun onSubscribe(d: Disposable) {
-                //addSubscribe(d)
+                addSubscribe(d)
             }
 
             override fun onNext(t: List<Hero>) {
@@ -33,6 +33,7 @@ class MainPresenter (): IMainContractor.Presenter() {
                 view?.showError(e.message + "")
             }
         })
+
 
 
 

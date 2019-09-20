@@ -8,7 +8,6 @@ package com.abhijeet.samplemvp.api
 import com.abhijeet.samplemvp.data_model.Hero
 import com.abhijeet.samplemvp.data_model.TokenValue
 import io.reactivex.Observable
-import retrofit2.Call
 
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
