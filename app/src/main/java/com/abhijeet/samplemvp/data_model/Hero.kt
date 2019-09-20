@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.Glide
 import androidx.databinding.BindingAdapter
+import java.io.Serializable
 
 
 data class Hero(
@@ -19,11 +20,4 @@ data class Hero(
     @SerializedName("bio") val bio: String
 
 
-) {
-    @BindingAdapter("imageurl")
-    fun loadImage(view: ImageView, imageUrl: String) {
-        Glide.with(view.getContext())
-            .load(imageUrl).apply(RequestOptions().circleCrop())
-            .into(view)
-    }
-}
+): Serializable

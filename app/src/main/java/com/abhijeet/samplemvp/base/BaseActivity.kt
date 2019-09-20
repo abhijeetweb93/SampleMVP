@@ -15,33 +15,17 @@ import com.abhijeet.samplemvp.databinding.ActivityBaseBinding
 import com.abhijeet.samplemvp.view.activity.MainActivity
 
 
-open abstract class BaseActivity<P : BasePresenter<out IBaseView, out BaseModel>> :
-    AppCompatActivity() {
+open abstract class BaseActivity<P : BasePresenter<out IBaseView, out BaseModel>> : AppCompatActivity() {
+
+
+
     private val TAG = MainActivity::class.java.simpleName
 
     //protected var progressBar: ProgressBar? = null
     protected var presenter: P? = null
     protected var baseBinding: ActivityBaseBinding? = null
 
-    //    protected fun bindView(layoutId:Int) {
-//        dataBinding = DataBindingUtil.setContentView(this, layoutId)
-//    }
-//
-//    override fun setContentView(layoutResID: Int) {
-//        val coordinatorLayout: RelativeLayout =layoutInflater.inflate(R.layout.activity_base, null) as RelativeLayout
-//        val activityContainer: FrameLayout = coordinatorLayout.findViewById(R.id.layout_container)
-//        progressBar = coordinatorLayout.findViewById(R.id.progressBar) as ProgressBar
-//
-//
-//        layoutInflater.inflate(layoutResID, activityContainer, true)
-//
-//        Logger().log("BaseActivity", "setContentView Method")
-//        if (presenter == null) {
-//            presenter = initPresenter()
-//        }
-//
-//        super.setContentView(coordinatorLayout)
-//    }
+
     override fun onCreate(@Nullable savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         baseBinding = DataBindingUtil.setContentView(this, R.layout.activity_base)

@@ -8,6 +8,7 @@ import com.abhijeet.samplemvp.R
 import com.abhijeet.samplemvp.base.BaseActivity
 import com.abhijeet.samplemvp.data_model.Hero
 import com.abhijeet.samplemvp.databinding.ActivityMainBinding
+import com.abhijeet.samplemvp.logger.AppAlert
 import com.abhijeet.samplemvp.logger.Logger
 import com.abhijeet.samplemvp.mvp.activity_main.IMainContractor
 import com.abhijeet.samplemvp.mvp.activity_main.MainPresenter
@@ -35,7 +36,7 @@ class MainActivity : BaseActivity<MainPresenter>(), IMainContractor.View {
     }
 
     override fun showError(errorMsg: String) {
-        Toast.makeText(this, errorMsg, Toast.LENGTH_LONG).show();
+        AppAlert().showAlert(binding?.rView!!,errorMsg)
     }
 
     override fun showData(listHero: List<Hero>) {

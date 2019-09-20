@@ -1,5 +1,6 @@
 package com.abhijeet.samplemvp.view.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import com.abhijeet.samplemvp.R
 import com.abhijeet.samplemvp.data_model.Hero
 import com.abhijeet.samplemvp.databinding.ListItemLayoutBinding
 import com.abhijeet.samplemvp.logger.AppAlert
+import com.abhijeet.samplemvp.view.activity.HeroDetailsActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.list_item_layout.view.*
 
@@ -43,6 +45,9 @@ class MainActivityRVAdapter(val heroList: List<Hero>) : RecyclerView.Adapter<Mai
 
                 cardView.setOnClickListener(View.OnClickListener {
                     AppAlert().showAlert(itemView,hero.toString())
+                    val intent=Intent( context,HeroDetailsActivity::class.java)
+                    intent.putExtra("hero",hero)
+                    context.startActivity(intent)
                 })
             }
         }
